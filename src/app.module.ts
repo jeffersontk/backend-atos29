@@ -2,13 +2,16 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 
-import { AuthModule } from './auth/auth.module';
-import { ClassModule } from './class/class.module';
-import { EnrollmentModule } from './enrollment/enrollment.module';
-import { ScheduleModule } from './schedule/schedule.module';
-import { MinistryModule } from './ministry/ministry.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { ClassModule } from './modules/class/class.module';
+import { ScheduleModule } from './modules/schedule/schedule.module';
+import { EnrollmentModule } from './modules/enrollment/enrollment.module';
+import { MinistryModule } from './modules/ministry/ministry.module';
+import { MinistryEnrollmentModule } from './modules/ministry/ministry-enrollment.module';
+import { CheckInModule } from './modules/ebdCheckIn/checkin.module';
+import { EbdModule } from './modules/ebd/ebd.module';
 
 @Module({
   imports: [
@@ -26,8 +29,11 @@ import { MinistryModule } from './ministry/ministry.module';
     AuthModule,
     ClassModule,
     EnrollmentModule,
+    MinistryEnrollmentModule,
     ScheduleModule,
     MinistryModule,
+    EbdModule,
+    CheckInModule,
   ],
   controllers: [AppController],
   providers: [AppService],
